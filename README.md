@@ -159,8 +159,76 @@ detector -h
 
 STing includes two companion scripts:
 
-###**`db_util.py`**
+### **`db_util.py`**
 This script provides a set of utilities to download databases from PubMLST and build STing indices from them.
+
+```
+
+This script provides a set of utilities to download databases from PubMLST and build STing indices from them.
+
+optional arguments:
+  -h, --help          show this help message and exit
+  --version           show program's version number and exit
+
+subcommands:
+  {list,query,fetch}
+    list              List all the available databases at PubMLST
+    query             Search a database in PubMLST
+    fetch             Fetch a database from PubMLST
+```
+
+To list the available MLST schemes and their last update time, use the `list` sub-command:
+
+```bash
+./scripts/db_util.py list
+# #       Database        #Profiles       Retrieved       DB_URL
+# 1       Achromobacter spp.      476     2019-11-18      https://pubmlst.org/achromobacter
+# 2       Acinetobacter baumannii#1       2058    2019-11-18      https://pubmlst.org/abaumannii/
+
+```
+
+To search the available PubMLST schemes by search term (e.g. 'cholera'), use the `query` sub-command:
+
+```bash
+./scripts/db_util.py query "cholera"
+# 1        -b 984     2019-11-18      https://pubmlst.org/vcholerae/
+# 2       Vibrio cholerae#2       422     2019-11-18      http://pubmlst.org/vcholerae
+```
+
+Finally, to download and build a PubMLST database, use the `fetch` sub-command:
+
+```bash
+./scripts/db_util.py fetch -q "Vibrio cholerae" -b -o testdb
+# Database: "Vibrio cholerae"
+#  Fetching allele sequences:
+#  - https://pubmlst.org/data/alleles/vcholerae/adk.tfa -> /storage/aroon/sting/databases/vibrio_cholerae/adk.fa
+#  - https://pubmlst.org/data/alleles/vcholerae/gyrB.tfa -> /storage/aroon/sting/databases/vibrio_cholerae/gyrB.fa
+#  - https://pubmlst.org/data/alleles/vcholerae/mdh.tfa -> /storage/aroon/sting/databases/vibrio_cholerae/mdh.fa
+#  - https://pubmlst.org/data/alleles/vcholerae/metE.tfa -> /storage/aroon/sting/databases/vibrio_cholerae/metE.fa
+#  - https://pubmlst.org/data/alleles/vcholerae/pntA.tfa -> /storage/aroon/sting/databases/vibrio_cholerae/pntA.fa
+#  - https://pubmlst.org/data/alleles/vcholerae/purM.tfa -> /storage/aroon/sting/databases/vibrio_cholerae/purM.fa
+#  - https://pubmlst.org/data/alleles/vcholerae/pyrC.tfa -> /storage/aroon/sting/databases/vibrio_cholerae/pyrC.fa
+#  Fetching profiles:
+#  - https://pubmlst.org/data/profiles/vcholerae.txt -> /storage/aroon/sting/databases/vibrio_cholerae/profile.txt
+# Building STing index:
+# /data/home/achande3/bin/indexer -c /storage/aroon/sting/databases/vibrio_cholerae/config.txt -p /storage/aroon/sting/databases/vibrio_cholerae/db/index
+# Loading sequences from sequences files:
+
+# #       Seqs.   File
+# 1       130     /storage/aroon/sting/databases/vibrio_cholerae/adk.fa
+# 2       151     /storage/aroon/sting/databases/vibrio_cholerae/gyrB.fa
+# 3       164     /storage/aroon/sting/databases/vibrio_cholerae/mdh.fa
+# 4       329     /storage/aroon/sting/databases/vibrio_cholerae/metE.fa
+# 5       185     /storage/aroon/sting/databases/vibrio_cholerae/pntA.fa
+# 6       128     /storage/aroon/sting/databases/vibrio_cholerae/purM.fa
+# 7       259     /storage/aroon/sting/databases/vibrio_cholerae/pyrC.fa
+
+# Total loaded sequences: 1346
+
+# Creating and saving ESA index from loaded sequences...
+# Index successfuly created!
+
+```
 
 ### **`plot_kmer_depth.R`** 
 

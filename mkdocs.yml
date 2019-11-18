@@ -1,0 +1,6 @@
+site_name: STing
+nav: 
+    - Home: index.md
+    - Quickstart: quickstart.md
+    - About: about.md
+theme: readthedocs

@@ -156,7 +156,7 @@ def fetch_db(species, outDbDir):
             fileName  = os.path.join(outDbDir,locusName+".fa")
             urllib.request.urlretrieve(locusUrl.text, fileName)
             print(" - {} -> {}".format(locusUrl.text, fileName))
-            configFile.write("{}\t{}\n".format(locusName, os.path.basename(fileName)))
+            configFile.write("{}\t{}\n".format(locusName, fileName))
         
         configFile.write("\n[profile]\n")
         
@@ -166,7 +166,7 @@ def fetch_db(species, outDbDir):
             print(" Fetching profiles: ")
             urllib.request.urlretrieve(profileUrl.text, fileName)
             print(" - {} -> {}".format(profileUrl.text, fileName, ""))
-            configFile.write("{}\t{}\n".format(os.path.basename(outDbDir), os.path.basename(fileName)))
+            configFile.write("{}\t{}\n".format(os.path.basename(outDbDir), fileName))
         
         configFile.close()
         
@@ -188,7 +188,10 @@ def fetch(fileContent, args, parser):
             
             if args.build_index:
                 print("Building STing index:")
-                outPrefix      = os.path.abspath(os.path.join(outDbDir, 'db', "index"))
+                outPrefix = os.path.abspath(os.path.join(outDbDir, 'db'))
+                if not os.path.exists(outPrefix):
+                    os.makedirs(outPrefix)
+                outPrefix = os.path.join(outPrefix, 'index')
                 configFileName = os.path.abspath(os.path.join(outDbDir, "config.txt"))
                 try:
                     build_index(configFileName, outPrefix)
