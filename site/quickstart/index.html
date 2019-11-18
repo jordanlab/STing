@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Quickstart - STing</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Quickstart";
+    var mkdocs_page_input_path = "quickstart.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> STing</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../about/">About</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Quickstart</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#typing">Typing</a></li>
+    
+
+    <li class="toctree-l2"><a href="#gene-detection">Gene detection</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#preparing-the-database">Preparing the database:</a></li>
+        
+            <li><a class="toctree-l3" href="#run-sting-detector">Run STing detector:</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../companion-scripts/">Companion scripts</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../typer/">Typer: MLST and beyond</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../detector/">Detector: gene annotation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../indexer/">Indexer: database preparation</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">STing</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Quickstart</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/jordanlab/STing/edit/master/docs/quickstart.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="typing">Typing</h1>
+<p>Preparing directory:</p>
+<pre><code>mkdir STing_demo
+cd STing_demo
+</code></pre>
+
+<p>Downloading the <em>Neisseria spp.</em> MLST database from PubMLST.org and build a STing index from it:</p>
+<pre><code>db_util.py fetch --query &quot;Neisseria spp.&quot; --out_dir my_dbs --build_index
+</code></pre>
+
+<p>Downloading a WGS sample to analyze:</p>
+<pre><code>wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR026/ERR026529/ERR026529_1.fastq.gz ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR026/ERR026529/ERR026529_2.fastq.gz
+</code></pre>
+
+<p>Run STing typer:</p>
+<pre><code>typer -x my_dbs/neisseria_spp/db/index -1 ERR026529_1.fastq.gz -2 ERR026529_2.fastq.gz -s ERR026529 -c -a -d -t ERR026529.depth.tsv -y -o ERR026529.results.tsv --sensitive
+</code></pre>
+
+<h1 id="gene-detection">Gene detection</h1>
+<p>Preparing directory:</p>
+<pre><code>mkdir -p STing_demo/my_dbs/card
+cd STing_demo/my_dbs/card
+</code></pre>
+
+<h2 id="preparing-the-database">Preparing the database:</h2>
+<p>Downloading the antimicrobial resistance gene database from <a href="https://card.mcmaster.ca/">CARD</a></p>
+<pre><code>wget https://card.mcmaster.ca/latest/data -O card.tgz
+tar xvf card.tgz
+</code></pre>
+
+<p>Changing IUPAC extended DNA characters to N on the CARD nucleotide file:</p>
+<pre><code>sed -e '/^[^&gt;]/s/[^ATGCatgc]/N/g' nucleotide_fasta_protein_homolog_model.fasta &gt; card.fasta
+</code></pre>
+
+<p>Creating STing db config file:</p>
+<pre><code>echo -e &quot;[loci]\ncard\tcard.fasta\n&quot; &gt; config.txt
+</code></pre>
+
+<p>The new config file should look like this:</p>
+<pre><code>[loci]
+card    card.fasta
+</code></pre>
+
+<p>Creating the STing database index:</p>
+<pre><code>indexer -c config.txt -p db/index -m GDETECT
+</code></pre>
+
+<p>Downloading a WGS sample to analyze:</p>
+<pre><code>wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR026/ERR026529/ERR026529_1.fastq.gz ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR026/ERR026529/ERR026529_2.fastq.gz
+</code></pre>
+
+<h2 id="run-sting-detector">Run STing detector:</h2>
+<pre><code>cd ../../
+typer -x my_dbs/neisseria_spp/db/index -1 ERR026529_1.fastq.gz -2 ERR026529_2.fastq.gz -s ERR026529 -c -a -d -t ERR026529.depth.tsv -y -o ERR026529.results.tsv --sensitive
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../companion-scripts/" class="btn btn-neutral float-right" title="Companion scripts">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../about/" class="btn btn-neutral" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/jordanlab/STing/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../about/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../companion-scripts/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

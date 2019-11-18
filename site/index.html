@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Home - STing</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Home";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> STing</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href=".">Home</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#sting-ultrafast-sequence-typing-and-gene-detection-from-ngs-raw-reads">STing: Ultrafast sequence typing and gene detection from NGS raw reads</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#requirements">Requirements</a></li>
+        
+            <li><a class="toctree-l3" href="#installation">Installation</a></li>
+        
+            <li><a class="toctree-l3" href="#sting-applications">STing applications</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="about/">About</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="quickstart/">Quickstart</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="companion-scripts/">Companion scripts</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="typer/">Typer: MLST and beyond</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="detector/">Detector: gene annotation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="indexer/">Indexer: database preparation</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">STing</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/jordanlab/STing/edit/master/docs/index.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="sting-ultrafast-sequence-typing-and-gene-detection-from-ngs-raw-reads">STing: Ultrafast sequence typing and gene detection from NGS raw reads</h1>
+<p>Rapid sequence typing.  Identification of bacterial sequence type (ST) is of utmost importance for molecular epidemiology and outbreak control.  The most common approach to typing is multilocus sequence typing (MLST) that defines an ST based on seven to nine housekeeping loci.  Availability of whole-genome sequencing has allowed increased resolution in MLST by incorporating more loci into the scheme.  Such “super-MLST” schemes include ribosomal MLST (rMLST, ~50 loci), core-genome MLST (cgMLST, &gt;1,500 loci) and whole-genome MLST (&gt;2,000 loci).  While these super-MLST schemes provide substantially higher resolution, the classical analysis of whole genome sequence entails substantial downstream bioinformatics analyses before the ST can be determined.  IHRC-GIT ABiL’s tool STing (Sequence Typing) is an ultrafast utility that that identifies an ST directly from raw sequencing reads using a novel, alignment-free algorithm.  STing correctly assigns sequence types with 100% accuracy in traditional MLST and near 100% accuracy in rMLST and cgMLST.    </p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Linux OS</li>
+<li>gcc &gt;= 4.8 and gcc &lt;= 5.3 </br>
+    You may use gcc &gt;= 5.3 to compile STing but you will see multiple warning messages. Those warning messages will not interfere with the binary generation.</li>
+<li>autotols (Ubuntu: autotools)<ul>
+<li>Autoconf &gt;= 2.69</li>
+<li>Automake &gt;= 1.15.1</li>
+<li>Libtool &gt;= 2.4.6</li>
+</ul>
+</li>
+<li>autotools developer headers (Ubuntu: autotools-dev)</li>
+<li>zlib &gt;= 1.2.8 (Ubuntu: zlib)</li>
+<li>zlib developer headers  (Ubuntu: zlib1g-dev)</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<pre><code>./autogen.sh
+./configure
+make
+make install
+</code></pre>
+
+<p>By default, <code>make install</code> will install all the files in <code>/usr/local/bin</code>, <code>/usr/local/lib</code> etc.  You can specify an installation prefix other than <code>/usr/local</code> using the <code>--prefix</code> options from <code>./configure</code>, for instance <code>./configure --prefix=$HOME</code>.  Please check all the available options of <code>./configure</code> by executing <code>./configure --help</code>.</p>
+<h2 id="sting-applications">STing applications</h2>
+<p>STing has three applications:</p>
+<ul>
+<li>
+<p><strong><code>indexer</code></strong>
+: Creates the indexes (databases) required to execute a locus-based typing analysis and detect genes.</p>
+</li>
+<li>
+<p><strong><code>typer</code></strong>
+: Predicts STs of a read sample based on an index built from a species-specific locus-based typing scheme (allelic profile table and sequences of observed alleles).</p>
+</li>
+<li>
+<p><strong><code>detector</code></strong>
+: Detects genes in a read sample based on an index built from sequences of a set of genes of interest.</p>
+</li>
+</ul>
+<p>To explore the usage and available options for each tool, run the corresponding application using the option <code>-h</code> or <code>--help</code>:</p>
+<pre><code>indexer -h
+typer -h
+detector -h
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/jordanlab/STing/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+        <span style="margin-left: 15px"><a href="about/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-11-18 19:04:50
+-->
