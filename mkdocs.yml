@@ -1,0 +1,10 @@
+site_name: STing
+nav: 
+    - Home: index.md
+    - Quickstart: quickstart.md
+    - 'Companion scripts': companion-scripts.md
+    - 'Typer: MLST and beyond': typer.md
+    - 'Detector: gene annotation': detector.md
+    - 'Indexer: database preparation': indexer.md
+theme: readthedocs
+repo_url: https://github.com/jordanlab/STing

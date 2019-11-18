@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Companion scripts - STing</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Companion scripts";
+    var mkdocs_page_input_path = "companion-scripts.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> STing</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../quickstart/">Quickstart</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Companion scripts</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#sting-companion-scripts">STing companion scripts</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#db_utilpy">db_util.py</a></li>
+        
+            <li><a class="toctree-l3" href="#plot_kmer_depthr">plot_kmer_depth.R</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../typer/">Typer: MLST and beyond</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../detector/">Detector: gene annotation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../indexer/">Indexer: database preparation</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">STing</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Companion scripts</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/jordanlab/STing/edit/master/docs/companion-scripts.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="sting-companion-scripts">STing companion scripts</h2>
+<p>STing includes two companion scripts:</p>
+<h3 id="db_utilpy"><strong><code>db_util.py</code></strong></h3>
+<p>This script provides a set of utilities to download databases from PubMLST and build STing indices from them.</p>
+<pre><code>
+This script provides a set of utilities to download databases from PubMLST and build STing indices from them.
+
+optional arguments:
+  -h, --help          show this help message and exit
+  --version           show program's version number and exit
+
+subcommands:
+  {list,query,fetch}
+    list              List all the available databases at PubMLST
+    query             Search a database in PubMLST
+    fetch             Fetch a database from PubMLST
+</code></pre>
+
+<p>To list the available MLST schemes and their last update time, use the <code>list</code> sub-command:</p>
+<pre><code class="bash">./scripts/db_util.py list
+# #       Database        #Profiles       Retrieved       DB_URL
+# 1       Achromobacter spp.      476     2019-11-18      https://pubmlst.org/achromobacter
+# 2       Acinetobacter baumannii#1       2058    2019-11-18      https://pubmlst.org/abaumannii/
+
+</code></pre>
+
+<p>To search the available PubMLST schemes by search term (e.g. 'cholera'), use the <code>query</code> sub-command:</p>
+<pre><code class="bash">./scripts/db_util.py query &quot;cholera&quot;
+# 1        -b 984     2019-11-18      https://pubmlst.org/vcholerae/
+# 2       Vibrio cholerae#2       422     2019-11-18      http://pubmlst.org/vcholerae
+</code></pre>
+
+<p>Finally, to download and build a PubMLST database, use the <code>fetch</code> sub-command:</p>
+<pre><code class="bash">./scripts/db_util.py fetch -q &quot;Vibrio cholerae&quot; -b -o testdb
+# Database: &quot;Vibrio cholerae&quot;
+#  Fetching allele sequences:
+#  - https://pubmlst.org/data/alleles/vcholerae/adk.tfa -&gt; /storage/aroon/sting/databases/vibrio_cholerae/adk.fa
+#  - https://pubmlst.org/data/alleles/vcholerae/gyrB.tfa -&gt; /storage/aroon/sting/databases/vibrio_cholerae/gyrB.fa
+#  - https://pubmlst.org/data/alleles/vcholerae/mdh.tfa -&gt; /storage/aroon/sting/databases/vibrio_cholerae/mdh.fa
+#  - https://pubmlst.org/data/alleles/vcholerae/metE.tfa -&gt; /storage/aroon/sting/databases/vibrio_cholerae/metE.fa
+#  - https://pubmlst.org/data/alleles/vcholerae/pntA.tfa -&gt; /storage/aroon/sting/databases/vibrio_cholerae/pntA.fa
+#  - https://pubmlst.org/data/alleles/vcholerae/purM.tfa -&gt; /storage/aroon/sting/databases/vibrio_cholerae/purM.fa
+#  - https://pubmlst.org/data/alleles/vcholerae/pyrC.tfa -&gt; /storage/aroon/sting/databases/vibrio_cholerae/pyrC.fa
+#  Fetching profiles:
+#  - https://pubmlst.org/data/profiles/vcholerae.txt -&gt; /storage/aroon/sting/databases/vibrio_cholerae/profile.txt
+# Building STing index:
+# /data/home/achande3/bin/indexer -c /storage/aroon/sting/databases/vibrio_cholerae/config.txt -p /storage/aroon/sting/databases/vibrio_cholerae/db/index
+# Loading sequences from sequences files:
+
+# #       Seqs.   File
+# 1       130     /storage/aroon/sting/databases/vibrio_cholerae/adk.fa
+# 2       151     /storage/aroon/sting/databases/vibrio_cholerae/gyrB.fa
+# 3       164     /storage/aroon/sting/databases/vibrio_cholerae/mdh.fa
+# 4       329     /storage/aroon/sting/databases/vibrio_cholerae/metE.fa
+# 5       185     /storage/aroon/sting/databases/vibrio_cholerae/pntA.fa
+# 6       128     /storage/aroon/sting/databases/vibrio_cholerae/purM.fa
+# 7       259     /storage/aroon/sting/databases/vibrio_cholerae/pyrC.fa
+
+# Total loaded sequences: 1346
+
+# Creating and saving ESA index from loaded sequences...
+# Index successfuly created!
+
+</code></pre>
+
+<h3 id="plot_kmer_depthr"><strong><code>plot_kmer_depth.R</code></strong></h3>
+<p>This script Generates <strong>k</strong>-mer depth plots from output depth files generated by the <code>typer</code> and <code>detector</code> applications.</p>
+<h4 id="requirements">Requirements:</h4>
+<p><code>plot_kmer_depth.R</code> requires the following R packages:</p>
+<ul>
+<li>argparser</li>
+<li>ggsci</li>
+<li>gridExtra</li>
+<li>RColorBrewer</li>
+<li>stringr</li>
+<li>svglite</li>
+<li>tidyverse</li>
+</ul>
+<p>By default, <code>plot_kmer_depth.R</code> will try to install automatically the required packages to the personal R library directory (usually something like <code>~/R/x86_64-pc-linux-gnu-library/3.4</code>).  </p>
+<pre><code> ./scripts/plot_kmer_depth.R
+usage: plot_kmer_depth.R [--] [--help] [--opts OPTS] [--gene_file GENE_FILE] [--prefix PREFIX] [--sample_name SAMPLE_NAME] [--max_loci_per_page MAX_LOCI_PER_PAGE] [--format FORMAT] input_file
+
+This script generates k-mer depth plots using a depth file generated by the STing typer tool (-t option).
+
+positional arguments:
+  input_file                    Samples file. Text file with a list of sample names (line by line).
+
+flags:
+  -h, --help                    show this help message and exit
+
+optional arguments:
+  -x, --opts OPTS                       RDS file containing argument values
+  -g, --gene_file GENE_FILE                     Path to a text file with a list of genes/loci to be plotted.
+  -p, --prefix PREFIX                   Filename prefix for output files. [default: kmer_depth]
+  -s, --sample_name SAMPLE_NAME                 Sample name. [default: input file's name]
+  -m, --max_loci_per_page MAX_LOCI_PER_PAGE                     Maximum number of loci to print on each page. [default: 7]
+  -f, --format FORMAT                   Output file format. Valid options are 'pdf', 'png', and 'svg' [default: pdf]
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../typer/" class="btn btn-neutral float-right" title="Typer: MLST and beyond">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../quickstart/" class="btn btn-neutral" title="Quickstart"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/jordanlab/STing/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../quickstart/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../typer/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

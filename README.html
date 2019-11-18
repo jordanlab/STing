@@ -1,0 +1,1363 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>@font-face {
+  font-family: octicons-anchor;
+  src: url(https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/font/octicons.woff) format('woff');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+    color:#333;
+    background:#fff;
+}
+
+body .markdown-body {
+    padding: 45px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+pre {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body input {
+  font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+  color: #4078c0;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .select::-ms-expand {
+  opacity: 0;
+}
+
+.markdown-body .octicon {
+  font: normal normal normal 16px/1 octicons-anchor;
+  display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+  content: '\f05c';
+}
+
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body .anchor {
+  display: inline-block;
+  padding-right: 2px;
+  margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #000;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h1 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body h6 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #fff;
+}
+
+.markdown-body code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .pl-c {
+  color: #969896;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #333;
+}
+
+.markdown-body .pl-ent {
+  color: #63a35c;
+}
+
+.markdown-body .pl-k {
+  color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #183691;
+}
+
+.markdown-body .pl-v {
+  color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+  color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b52a1d;
+  color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #63a35c;
+  font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+  color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #1d3e81;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+  color: #008080;
+}
+
+.markdown-body .pl-mi {
+  color: #333;
+  font-style: italic;
+}
+
+.markdown-body .pl-mb {
+  color: #333;
+  font-weight: bold;
+}
+
+.markdown-body .pl-md {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+  color: #795da3;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+  color: #1d3e81;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .plan-price-unit {
+  color: #767676;
+  font-weight: normal;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 0.35em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body .plan-choice {
+  padding: 15px;
+  padding-left: 40px;
+  display: block;
+  border: 1px solid #e0e0e0;
+  position: relative;
+  font-weight: normal;
+  background-color: #fafafa;
+}
+
+.markdown-body .plan-choice.open {
+  background-color: #fff;
+}
+
+.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
+  display: block;
+}
+
+.markdown-body .plan-choice-free {
+  border-radius: 3px 3px 0 0;
+}
+
+.markdown-body .plan-choice-paid {
+  border-radius: 0 0 3px 3px;
+  border-top: 0;
+  margin-bottom: 20px;
+}
+
+.markdown-body .plan-choice-radio {
+  position: absolute;
+  left: 15px;
+  top: 18px;
+}
+
+.markdown-body .plan-choice-exp {
+  color: #999;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.markdown-body .plan-choice-seat-breakdown {
+  margin-top: 10px;
+  display: none;
+}
+
+.markdown-body :checked+.radio-label {
+  z-index: 1;
+  position: relative;
+  border-color: #4078c0;
+}
+
+@media print {
+  body .markdown-body {
+    padding: 0;
+    border: none;
+  }
+}
+</style><title>README</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-sting" class="anchor" href="#sting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>STing</h1>
+<h4>
+<a id="user-content-table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of contents:</h4>
+
+<ul>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#installation">Installation</a></li>
+<li>
+<a href="#quickstart-guide">Quickstart guide</a>
+<ul>
+<li><a href="#typing">Typing</a></li>
+<li><a href="#gene-detection">Gene detection</a></li>
+<li><a href="#preparing-the-database">Preparing the database:</a></li>
+</ul>
+</li>
+<li><a href="#sting-applications">STing applications</a></li>
+<li>
+<a href="#sting-companion-scripts">STing companion scripts</a>
+<ul>
+<li><a href="#db_utilpy"><strong><code>db_util.py</code></strong></a></li>
+<li><a href="#plot_kmer_depthr"><strong><code>plot_kmer_depth.R</code></strong></a></li>
+</ul>
+</li>
+<li>
+<a href="#using-sting">Using STing</a>
+<ul>
+<li><a href="#typing-mlst">Typing (MLST)</a></li>
+<li><a href="#gene-detection-1">Gene Detection</a></li>
+</ul>
+</li>
+<li>
+<a href="#application-extended-help">Application extended help</a>
+<ul>
+<li><a href="#indexer">indexer</a></li>
+<li><a href="#typer">typer</a></li>
+</ul>
+</li>
+<li>
+<a href="#seqan-version-211"><strong>SeqAn version:</strong> 2.1.1</a>
+<ul>
+<li><a href="#detector">detector</a></li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="user-content-requirements" class="anchor" href="#requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements</h2>
+<ul>
+<li>Linux OS</li>
+<li>gcc &gt;= 4.8 and gcc &lt;= 5.3 
+You may use gcc &gt;= 5.3 to compile STing but you will see multiple warning messages. Those warning messages will not interfere with the binary generation.</li>
+<li>autotols (Ubuntu: autotools)
+<ul>
+<li>Autoconf &gt;= 2.69</li>
+<li>Automake &gt;= 1.15.1</li>
+<li>Libtool &gt;= 2.4.6</li>
+</ul>
+</li>
+<li>autotools developer headers (Ubuntu: autotools-dev)</li>
+<li>zlib &gt;= 1.2.8 (Ubuntu: zlib)</li>
+<li>zlib developer headers  (Ubuntu: zlib1g-dev)</li>
+</ul>
+<h2>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+<pre><code>./autogen.sh
+./configure
+make
+make install
+</code></pre>
+<p>By default, <code>make install</code> will install all the files in <code>/usr/local/bin</code>, <code>/usr/local/lib</code> etc.  You can specify an installation prefix other than <code>/usr/local</code> using the <code>--prefix</code> options from <code>./configure</code>, for instance <code>./configure --prefix=$HOME</code>.  Please check all the available options of <code>./configure</code> by executing <code>./configure --help</code>.</p>
+<h2>
+<a id="user-content-quickstart-guide" class="anchor" href="#quickstart-guide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quickstart guide</h2>
+<h3>
+<a id="user-content-typing" class="anchor" href="#typing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Typing</h3>
+<p>Preparing directory:</p>
+<pre><code>mkdir STing_demo
+cd STing_demo
+</code></pre>
+<p>Downloading the <em>Neisseria spp.</em> MLST database from PubMLST.org and build a STing index from it:</p>
+<pre><code>db_util.py fetch --query "Neisseria spp." --out_dir my_dbs --build_index
+</code></pre>
+<p>Downloading a WGS sample to analyze:</p>
+<pre><code>wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR026/ERR026529/ERR026529_1.fastq.gz ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR026/ERR026529/ERR026529_2.fastq.gz
+</code></pre>
+<p>Run STing typer:</p>
+<pre><code>typer -x my_dbs/neisseria_spp/db/index -1 ERR026529_1.fastq.gz -2 ERR026529_2.fastq.gz -s ERR026529 -c -a -d -t ERR026529.depth.tsv -y -o ERR026529.results.tsv --sensitive
+</code></pre>
+<h3>
+<a id="user-content-gene-detection" class="anchor" href="#gene-detection" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Gene detection</h3>
+<p>Preparing directory:</p>
+<pre><code>mkdir -p STing_demo/my_dbs/card
+cd STing_demo/my_dbs/card
+</code></pre>
+<h3>
+<a id="user-content-preparing-the-database" class="anchor" href="#preparing-the-database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Preparing the database:</h3>
+<p>Downloading the antimicrobial resistance gene database from <a href="https://card.mcmaster.ca/" rel="nofollow">CARD</a></p>
+<pre><code>wget https://card.mcmaster.ca/latest/data -O card.tgz
+tar xvf card.tgz
+</code></pre>
+<p>Changing IUPAC extended DNA characters to N on the CARD nucleotide file:</p>
+<pre><code>sed -e '/^[^&gt;]/s/[^ATGCatgc]/N/g' nucleotide_fasta_protein_homolog_model.fasta &gt; card.fasta
+</code></pre>
+<p>Creating STing db config file:</p>
+<pre><code>echo -e "[loci]\ncard\tcard.fasta\n" &gt; config.txt
+</code></pre>
+<p>The new config file should look like this:</p>
+<pre><code>[loci]
+card    card.fasta
+</code></pre>
+<p>Creating the STing database index:</p>
+<pre><code>indexer -c config.txt -p db/index -m GDETECT
+</code></pre>
+<p>Downloading a WGS sample to analyze:</p>
+<pre><code>wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR026/ERR026529/ERR026529_1.fastq.gz ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR026/ERR026529/ERR026529_2.fastq.gz
+</code></pre>
+<p>Run STing detector:</p>
+<pre><code>cd ../../
+typer -x my_dbs/neisseria_spp/db/index -1 ERR026529_1.fastq.gz -2 ERR026529_2.fastq.gz -s ERR026529 -c -a -d -t ERR026529.depth.tsv -y -o ERR026529.results.tsv --sensitive
+</code></pre>
+<h2>
+<a id="user-content-sting-applications" class="anchor" href="#sting-applications" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>STing applications</h2>
+<p>STing has three applications:</p>
+<ul>
+<li>
+<p><strong><code>indexer</code></strong>
+: Creates the indexes (databases) required to execute a locus-based typing analysis and detect genes.</p>
+</li>
+<li>
+<p><strong><code>typer</code></strong>
+: Predicts STs of a read sample based on an index built from a species-specific locus-based typing scheme (allelic profile table and sequences of observed alleles).</p>
+</li>
+<li>
+<p><strong><code>detector</code></strong>
+: Detects genes in a read sample based on an index built from sequences of a set of genes of interest.</p>
+</li>
+</ul>
+<p>To explore the usage and available options for each tool, run the corresponding application using the option <code>-h</code> or <code>--help</code>:</p>
+<pre><code>indexer -h
+typer -h
+detector -h
+</code></pre>
+<h2>
+<a id="user-content-sting-companion-scripts" class="anchor" href="#sting-companion-scripts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>STing companion scripts</h2>
+<p>STing includes two companion scripts:</p>
+<h3>
+<a id="user-content-db_utilpy" class="anchor" href="#db_utilpy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong><code>db_util.py</code></strong>
+</h3>
+<p>This script provides a set of utilities to download databases from PubMLST and build STing indices from them.</p>
+<pre><code>
+This script provides a set of utilities to download databases from PubMLST and build STing indices from them.
+
+optional arguments:
+  -h, --help          show this help message and exit
+  --version           show program's version number and exit
+
+subcommands:
+  {list,query,fetch}
+    list              List all the available databases at PubMLST
+    query             Search a database in PubMLST
+    fetch             Fetch a database from PubMLST
+</code></pre>
+<p>To list the available MLST schemes and their last update time, use the <code>list</code> sub-command:</p>
+<div class="highlight highlight-source-shell"><pre>./scripts/db_util.py list
+<span class="pl-c"><span class="pl-c">#</span> #       Database        #Profiles       Retrieved       DB_URL</span>
+<span class="pl-c"><span class="pl-c">#</span> 1       Achromobacter spp.      476     2019-11-18      https://pubmlst.org/achromobacter</span>
+<span class="pl-c"><span class="pl-c">#</span> 2       Acinetobacter baumannii#1       2058    2019-11-18      https://pubmlst.org/abaumannii/</span>
+</pre></div>
+<p>To search the available PubMLST schemes by search term (e.g. 'cholera'), use the <code>query</code> sub-command:</p>
+<div class="highlight highlight-source-shell"><pre>./scripts/db_util.py query <span class="pl-s"><span class="pl-pds">"</span>cholera<span class="pl-pds">"</span></span>
+<span class="pl-c"><span class="pl-c">#</span> 1        -b 984     2019-11-18      https://pubmlst.org/vcholerae/</span>
+<span class="pl-c"><span class="pl-c">#</span> 2       Vibrio cholerae#2       422     2019-11-18      http://pubmlst.org/vcholerae</span></pre></div>
+<p>Finally, to download and build a PubMLST database, use the <code>fetch</code> sub-command:</p>
+<div class="highlight highlight-source-shell"><pre>./scripts/db_util.py fetch -q <span class="pl-s"><span class="pl-pds">"</span>Vibrio cholerae<span class="pl-pds">"</span></span> -b -o testdb
+<span class="pl-c"><span class="pl-c">#</span> Database: "Vibrio cholerae"</span>
+<span class="pl-c"><span class="pl-c">#</span>  Fetching allele sequences:</span>
+<span class="pl-c"><span class="pl-c">#</span>  - https://pubmlst.org/data/alleles/vcholerae/adk.tfa -&gt; /storage/aroon/sting/databases/vibrio_cholerae/adk.fa</span>
+<span class="pl-c"><span class="pl-c">#</span>  - https://pubmlst.org/data/alleles/vcholerae/gyrB.tfa -&gt; /storage/aroon/sting/databases/vibrio_cholerae/gyrB.fa</span>
+<span class="pl-c"><span class="pl-c">#</span>  - https://pubmlst.org/data/alleles/vcholerae/mdh.tfa -&gt; /storage/aroon/sting/databases/vibrio_cholerae/mdh.fa</span>
+<span class="pl-c"><span class="pl-c">#</span>  - https://pubmlst.org/data/alleles/vcholerae/metE.tfa -&gt; /storage/aroon/sting/databases/vibrio_cholerae/metE.fa</span>
+<span class="pl-c"><span class="pl-c">#</span>  - https://pubmlst.org/data/alleles/vcholerae/pntA.tfa -&gt; /storage/aroon/sting/databases/vibrio_cholerae/pntA.fa</span>
+<span class="pl-c"><span class="pl-c">#</span>  - https://pubmlst.org/data/alleles/vcholerae/purM.tfa -&gt; /storage/aroon/sting/databases/vibrio_cholerae/purM.fa</span>
+<span class="pl-c"><span class="pl-c">#</span>  - https://pubmlst.org/data/alleles/vcholerae/pyrC.tfa -&gt; /storage/aroon/sting/databases/vibrio_cholerae/pyrC.fa</span>
+<span class="pl-c"><span class="pl-c">#</span>  Fetching profiles:</span>
+<span class="pl-c"><span class="pl-c">#</span>  - https://pubmlst.org/data/profiles/vcholerae.txt -&gt; /storage/aroon/sting/databases/vibrio_cholerae/profile.txt</span>
+<span class="pl-c"><span class="pl-c">#</span> Building STing index:</span>
+<span class="pl-c"><span class="pl-c">#</span> /data/home/achande3/bin/indexer -c /storage/aroon/sting/databases/vibrio_cholerae/config.txt -p /storage/aroon/sting/databases/vibrio_cholerae/db/index</span>
+<span class="pl-c"><span class="pl-c">#</span> Loading sequences from sequences files:</span>
+
+<span class="pl-c"><span class="pl-c">#</span> #       Seqs.   File</span>
+<span class="pl-c"><span class="pl-c">#</span> 1       130     /storage/aroon/sting/databases/vibrio_cholerae/adk.fa</span>
+<span class="pl-c"><span class="pl-c">#</span> 2       151     /storage/aroon/sting/databases/vibrio_cholerae/gyrB.fa</span>
+<span class="pl-c"><span class="pl-c">#</span> 3       164     /storage/aroon/sting/databases/vibrio_cholerae/mdh.fa</span>
+<span class="pl-c"><span class="pl-c">#</span> 4       329     /storage/aroon/sting/databases/vibrio_cholerae/metE.fa</span>
+<span class="pl-c"><span class="pl-c">#</span> 5       185     /storage/aroon/sting/databases/vibrio_cholerae/pntA.fa</span>
+<span class="pl-c"><span class="pl-c">#</span> 6       128     /storage/aroon/sting/databases/vibrio_cholerae/purM.fa</span>
+<span class="pl-c"><span class="pl-c">#</span> 7       259     /storage/aroon/sting/databases/vibrio_cholerae/pyrC.fa</span>
+
+<span class="pl-c"><span class="pl-c">#</span> Total loaded sequences: 1346</span>
+
+<span class="pl-c"><span class="pl-c">#</span> Creating and saving ESA index from loaded sequences...</span>
+<span class="pl-c"><span class="pl-c">#</span> Index successfuly created!</span>
+</pre></div>
+<h3>
+<a id="user-content-plot_kmer_depthr" class="anchor" href="#plot_kmer_depthr" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong><code>plot_kmer_depth.R</code></strong>
+</h3>
+<p>This script Generates <strong>k</strong>-mer depth plots from output depth files generated by the <code>typer</code> and <code>detector</code> applications.</p>
+<h4>
+<a id="user-content-requirements-1" class="anchor" href="#requirements-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements:</h4>
+<p><code>plot_kmer_depth.R</code> requires the following R packages:</p>
+<ul>
+<li>argparser</li>
+<li>ggsci</li>
+<li>gridExtra</li>
+<li>RColorBrewer</li>
+<li>stringr</li>
+<li>svglite</li>
+<li>tidyverse</li>
+</ul>
+<p>By default, <code>plot_kmer_depth.R</code> will try to install automatically the required packages to the personal R library directory (usually something like <code>~/R/x86_64-pc-linux-gnu-library/3.4</code>).</p>
+<pre><code> ./scripts/plot_kmer_depth.R
+usage: plot_kmer_depth.R [--] [--help] [--opts OPTS] [--gene_file GENE_FILE] [--prefix PREFIX] [--sample_name SAMPLE_NAME] [--max_loci_per_page MAX_LOCI_PER_PAGE] [--format FORMAT] input_file
+
+This script generates k-mer depth plots using a depth file generated by the STing typer tool (-t option).
+
+positional arguments:
+  input_file                    Samples file. Text file with a list of sample names (line by line).
+
+flags:
+  -h, --help                    show this help message and exit
+
+optional arguments:
+  -x, --opts OPTS                       RDS file containing argument values
+  -g, --gene_file GENE_FILE                     Path to a text file with a list of genes/loci to be plotted.
+  -p, --prefix PREFIX                   Filename prefix for output files. [default: kmer_depth]
+  -s, --sample_name SAMPLE_NAME                 Sample name. [default: input file's name]
+  -m, --max_loci_per_page MAX_LOCI_PER_PAGE                     Maximum number of loci to print on each page. [default: 7]
+  -f, --format FORMAT                   Output file format. Valid options are 'pdf', 'png', and 'svg' [default: pdf]
+</code></pre>
+<h2>
+<a id="user-content-using-sting" class="anchor" href="#using-sting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using STing</h2>
+<p>Next subsections present a brief description of the MLST analysis and gene detection workflows of STing. For the detailed help and usage of each application, please check the last section of this document (<a href="#extended-help-of-the-applications">Application extended help</a>).
+In order to test the different STing tools, the folder <code>test</code> is included at the STing root directory. It contains the example files described below (configuration, profiles, and sequences) in addition to some read samples.</p>
+<h3>
+<a id="user-content-typing-mlst" class="anchor" href="#typing-mlst" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Typing (MLST)</h3>
+<p>Two main steps are required to execute an MLST analysis with STing: <em>Database indexing</em> and <em>ST prediction</em></p>
+<h4>
+<a id="user-content-database-indexing" class="anchor" href="#database-indexing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Database indexing</h4>
+<ol>
+<li>
+<p>Create a config file that contains the path to loci and allelic profiles files. The format details for each file are the following:</p>
+<h5>
+<a id="user-content-config-file" class="anchor" href="#config-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Config file</h5>
+<p>A tab separated file that follows this format:</p>
+<pre><code>[loci]
+locus1   relative/path/to/locusFile1.fa
+locus2   relative/path/to/locusFile2.fa
+[profile]
+profile  relative/path/to/profileFile.txt
+</code></pre>
+<p>Blank lines and comments (lines starting with <code>#</code>) in this file, will be ignored. Paths are relative to the config file itself.
+This is an example of a configuration file for the species <em>Neisseria spp.</em> (<code>test/mlst/pubmlst_db_files/Neisseria_spp/config.txt</code>):</p>
+<pre><code>[loci]
+abcZ  abcZ.fa
+adk adk.fa
+aroE  aroE.fa
+fumC  fumC.fa
+gdh gdh.fa
+pdhC  pdhC.fa
+pgm pgm.fa
+[profile]
+Neisseria_spp profile.txt
+</code></pre>
+<h5>
+<a id="user-content-allele-sequence-file" class="anchor" href="#allele-sequence-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Allele sequence file</h5>
+<p>A standard multi-FASTA file in which the id of each sequence consists of a locus name and an allele number separated by <code>_</code>:</p>
+<pre><code>&gt;abcZ_1
+TTTGATACTGTTGCCGA...
+&gt;abcZ_2
+TTTGATACTGTTGCCGA...
+</code></pre>
+<h5>
+<a id="user-content-profile-file" class="anchor" href="#profile-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Profile file</h5>
+<p>A tab separated file which contains each ST and its corresponding allelic profile (<code>test/mlst/pubmlst_db_files/Neisseria_spp/profile.txt</code>):</p>
+<pre><code>ST  abcZ  adk  aroE  fumC  gdh  pdhC  pgm  clonal_complex
+1   1     3    1     1     1    1     3    ST-1 complex/subgroup I/II
+2   1     3    4     7     1    1     3    ST-1 complex/subgroup I/II
+3   1     3    1     1     1    23    13   ST-1 complex/subgroup I/II
+4   1     3    3     1     4    2     3    ST-4 complex/subgroup IV
+...
+</code></pre>
+<p>ST and loci columns (columns 1 to 7) are required in this file.</p>
+</li>
+<li>
+<p>Build the database using the <code>indexer</code> tool:</p>
+<pre><code>indexer -m &lt;MODE&gt; -c &lt;CONFIG_FILE&gt; -p &lt;PREFIX_FILE&gt;
+</code></pre>
+<p>Example:</p>
+<pre><code>indexer -m MLST -c test/mlst/pubmlst_db_files/Neisseria_spp/config.txt -p test/mlst/dbs/Neisseria_spp/db
+</code></pre>
+<p>The command above will create an index for MLST analysis (mode MLST specified by <code>-m MLST</code>) using the MLST database files defined in the config file <code>test/mlst/pubmlst_db_files/Neisseria_spp/config.txt</code>. As a result, the indexer will generate a series of files named with the prefix <code>db</code> inside the directory <code>test/mlst/dbs/Neisseria_spp</code>.</p>
+<p>The output of the command looks like this:</p>
+<pre><code>Loading sequences from sequences files:
+N  Loci  #Seqs.  File
+1  abcZ  1019    Neisseria_spp/abcZ.fa
+2  adk   788     Neisseria_spp/adk.fa
+3  aroE  1048    Neisseria_spp/aroE.fa
+4  fumC  1125    Neisseria_spp/fumC.fa
+5  gdh   1080    Neisseria_spp/gdh.fa
+6  pdhC  1025    Neisseria_spp/pdhC.fa
+7  pgm   1097    Neisseria_spp/pgm.fa
+Total sequences loaded: 7182
+Loading the profiles file... Done!
+Creating and saving ESA index from loaded sequences... Done!
+Index created successfully!
+</code></pre>
+</li>
+</ol>
+<h4>
+<a id="user-content-st-prediction" class="anchor" href="#st-prediction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ST prediction</h4>
+<p>Use the <code>typer</code>tool to predict the ST of a read set:</p>
+<pre><code>typer -x &lt;INDEX_PREFIX_FILENAME&gt; -1 &lt;FASTQ1&gt; -2 &lt;FASTQ2&gt; -k &lt;KMER_LENGTH&gt; -s &lt;SAMPLE_NAME&gt;
+</code></pre>
+<p>Example:</p>
+<pre><code>typer -x test/mlst/dbs/Neisseria_spp/db -1 test/mlst/samples/ERR017011_1.fastq.gz -2 test/mlst/samples/ERR017011_2.fastq.gz -s ERR017011
+</code></pre>
+<p>The command above will predict the ST of the read sample called <code>ERR017011</code> (<code>-s</code>), which comprises the input files <code>test/mlst/samples/ERR017011_1.fastq.gz</code> and <code>test/mlst/samples/ERR017011_2.fastq.gz</code> (specified by <code>-1</code> and <code>-2</code>), using the index located at the directory <code>test/mlst/dbs/Neisseria_spp</code> with the prefix <code>db</code> (<code>-x test/mlst/dbs/Neisseria_spp/db</code>).</p>
+<p>The output of the previous command looks like this:</p>
+<pre><code>Sample  Line_type       Status  ST      abcZ    adk     aroE    fumC    gdh     pdhC    pgm     Total_k-mers  Total_reads      Input_files
+ERR017011       allelic_profile st_predicted    5       1       1       2       1       3       2       3     76657    3597    ERR017011_1.fastq.gz,ERR017011_2.fastq.gz
+</code></pre>
+<p>By default, the typer application will send the header to <code>stderr</code>, and the prediction result to <code>stdout</code>. You can use the option <code>-o</code> to save the whole results (header and prediction) to a file, e.g., <code>-o my_results.tsv</code>.</p>
+<h3>
+<a id="user-content-gene-detection-1" class="anchor" href="#gene-detection-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Gene Detection</h3>
+<p>Two main steps are required to detect genes using STing: <em>Database building</em> and <em>Detection</em>.</p>
+<h4>
+<a id="user-content-database-building" class="anchor" href="#database-building" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Database building</h4>
+<ol>
+<li>
+<p>Create a config file that contains the path to gene files. The format details are the following:</p>
+<h5>
+<a id="user-content-config-file-1" class="anchor" href="#config-file-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Config file</h5>
+<p>A tab separated file with the following format:</p>
+<pre><code>[loci]
+gene1   /path/to/geneFile1.fa
+gene2   /path/to/geneFile2.fa
+</code></pre>
+<p>Blank lines and comments (lines starting with <code>#</code>) in this file, will be ignored.
+Note that there are no <code>[profile]</code> section for a configuration file for gene detection. If the file contains this section, the <code>indexer</code> tool will show an error message.
+This is an example of a configuration file of AMR genes (<code>test/amr/amr_db_files/set_01/config.txt</code>):</p>
+<pre><code>[loci]
+erm erm.fasta
+ksg ksg.fasta
+pen pen.fasta
+qac qac.fasta
+aac2ic  aac2ic.fasta
+aph6id  aph6id.fasta
+bl2a_1  bl2a_1.fasta
+ermb  ermb.fasta
+mepa  mepa.fasta
+pbp2b pbp2b.fasta
+pbp2x pbp2x.fasta
+tetpa tetpa.fasta
+</code></pre>
+<h5>
+<a id="user-content-gene-sequence-file" class="anchor" href="#gene-sequence-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Gene sequence file</h5>
+<p>A standard multi-FASTA file in which the id is the name of the gene. In case of having genes with the same name, you should add a number to the name separated by <code>_</code>:</p>
+<pre><code>&gt;pen_1
+TTTGATACTGTTGCCGA...
+&gt;pen_2
+TTTGATACTGTTGCCGA...
+</code></pre>
+</li>
+<li>
+<p>Build the database using the <code>indexer</code> tool:</p>
+<pre><code>indexer -m &lt;MODE&gt; -c &lt;CONFIG_FILE&gt; -p &lt;PREFIX_FILE&gt;
+</code></pre>
+<p>Example:</p>
+<pre><code>indexer -m GDETECT -p databases/amr -c test/amr/amr_db_files/set_01/config.txt
+</code></pre>
+<p>The command above will create an index for gene detection (mode GDETECT in the config file <code>test/amr/amr_db_files/set_01/config.txt</code>. As a result, the indexer will create a series of files named with the prefix <code>amr</code> inside the directory <code>databases</code>.</p>
+<p>The output of the command looks like this:</p>
+<pre><code>Loading sequences from sequences files:
+N     Loci    #Seqs.  File
+1     aac2ic  1       set_01/aac2ic.fasta
+2     aph6id  1       set_01/aph6id.fasta
+3     bl2a_1  1       set_01/bl2a_1.fasta
+4     erm     1       set_01/erm.fasta
+5     ermb    1       set_01/ermb.fasta
+6     ksg     2       set_01/ksg.fasta
+7     mepa    1       set_01/mepa.fasta
+8     pbp2b   1       set_01/pbp2b.fasta
+9     pbp2x   1       set_01/pbp2x.fasta
+10    pen     4       set_01/pen.fasta
+11    qac     1       set_01/qac.fasta
+12    tetpa   1       set_01/tetpa.fasta
+Total loaded sequences: 16
+Creating and saving ESA index from loaded sequences...
+Index created successfuly!
+</code></pre>
+</li>
+</ol>
+<h4>
+<a id="user-content-detection" class="anchor" href="#detection" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Detection</h4>
+<p>You must use the <code>detector</code> tool to detect genes in a read set:</p>
+<pre><code>detector -x &lt;INDEX_PREFIX_FILENAME&gt; -1 &lt;FASTQ1&gt; -2 &lt;FASTQ2&gt; -k &lt;KMER_LENGTH&gt;
+</code></pre>
+<p>Example:</p>
+<pre><code>detector -x databases/amr -1 test/amr/samples/GCF_000008805.fasta.40.1.fq.gz -2 test/amr/samples/GCF_000008805.fasta.40.2.fq.gz -k 30 -s GCF_000008805
+</code></pre>
+<p>The command above will detect presence/absence (1/0) of the genes from the database, in the read sample called <code>GCF_000008805</code> (<code>-s</code>) which comprises the input files <code>test/amr/samples/GCF_000008805.fasta.40.1.fq.gz</code> and <code>test/amr/samples/GCF_000008805.fasta.40.2.fq.gz</code> (specified by <code>-1</code> and <code>-2</code>), using the index located at the directory <code>databases</code> with the prefix <code>amr</code> (<code>-x databases/amr</code>). Additionally, the tool will use <em>k</em>-mers of size 30 (<code>-k 30</code>) to process the input reads.</p>
+<p>The output of the previous command looks like this:</p>
+<pre><code>Sample  Line_type ermC  ksga1 ksga2 pbp2b pen1  pen2  pen3  pen4  qacE1 Total_hits  Total_kmers Total_reads Input_files 
+GCF_000008805 presence  1 1 0 1 1 1 1 1 1 288106170395  1396  GCF_000008805.fasta.40.1.fq.gz,GCF_000008805.fasta.40.2.fq.gz
+</code></pre>
+<p>By default, the detector application will send the header to <code>stderr</code>, and the prediction result to <code>stdout</code>.</p>
+<h2>
+<a id="user-content-application-extended-help" class="anchor" href="#application-extended-help" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Application extended help</h2>
+<h3>
+<a id="user-content-indexer" class="anchor" href="#indexer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>indexer</h3>
+<h4>
+<a id="user-content-synopsis" class="anchor" href="#synopsis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h4>
+<p><strong>indexer</strong> [OPTIONS] -c &lt;CONFIG_FILE&gt;</p>
+<h4>
+<a id="user-content-description" class="anchor" href="#description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h4>
+<p>STing <strong>indexer</strong> creates indexes (DBs) required by the STing <strong>typer</strong> and <strong>detector</strong> programs for loci-based typing analysis and detecting genes, respectively, from NGS raw sequence reads.</p>
+<dl>
+  <dt>-h, --help</dt>
+    <dd>Display the help message.</dd>
+  <dt>--version</dt>
+    <dd>Display version information.</dd>
+  <dt>-c, --config-file CONFIG_FILE</dt>
+    <dd>A tab delimited file whith names and paths to the typing scheme files (see the FILE FORMAT DETAILS section below).</dd>
+  <dt>-p, --db-prefix PREFIX</dt>
+    <dd>Filename prefix for the DB files to be created. You can specify a folder structure here to store your DB at a particular location, e.g., path/to/my/db/prefix. Default: name of the config file CONFIG_FILE</dd>
+  <dt>-m, --mode MODE</dt>
+    <dd>Indexing mode. Valid options: MLST, GDETECT. Select MLST to create a database for MLST analysis or GDETECT to create a database for gene detection. Default: _MLST_.</dd>
+</dl>
+<h4>
+<a id="user-content-file-format-details" class="anchor" href="#file-format-details" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>File format details</h4>
+<h5>
+<a id="user-content-config_file" class="anchor" href="#config_file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CONFIG_FILE</h5>
+<p>A tab separated file with the name and location of files for creating a DB.
+Config files for MLST DBs (MLST mode) must have two sections: <strong>[loci]</strong> that describes names and paths to alleles sequence files for each locus, and <strong>[profile]</strong> that describes the name and path to the profile file.
+Config files for gene detection DBs (GDETECT mode), only require the [loci] section.
+An example of a config file for a MLST DB is as follows:</p>
+<pre><code>[loci]
+locus1 relative/path/to/locusFile1
+locus2 relative/path/to/locusFile2
+locusN relative/path/to/locusFileN
+[profile]
+profile relative/path/to/profileFile
+</code></pre>
+<p>Paths are relative to the config file itself. Blank lines and comments (lines starting with '#') will be ignored.</p>
+<h5>
+<a id="user-content-allele-sequence-file-1" class="anchor" href="#allele-sequence-file-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Allele sequence file</h5>
+<p>A standard multi-FASTA file (.fa or .fasta) in which each sequence description must be the locus name and the allele number separated by '_':</p>
+<pre><code>&gt;abcZ_1
+TTTGATACTGTTGCCGA...
+&gt;abcZ_2
+TTTGATACTGTTGCCGA...
+</code></pre>
+<h5>
+<a id="user-content-profile-file-1" class="anchor" href="#profile-file-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Profile file</h5>
+<p>A tab separated file that contains the ST and the corresponding allelic profile:</p>
+<pre><code>ST abcZ adk aroE fumC gdh pdhC pgm clonal_complex
+1 1 3 1 1 1 1 3 ST-1 complex/subgroup I/II
+2 1 3 4 7 1 1 3 ST-1 complex/subgroup I/II
+3 1 3 1 1 1 23 13 ST-1 complex/subgroup I/II
+4 1 3 3 1 4 2 3 ST-4 complex/subgroup IV
+</code></pre>
+<h4>
+<a id="user-content-version" class="anchor" href="#version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Version</h4>
+<p><strong>Last update:</strong> 09/11/2018<br>
+<strong>indexer version:</strong> 0.23.2<br>
+<strong>SeqAn version:</strong> 2.1.1</p>
+<hr>
+<h3>
+<a id="user-content-typer" class="anchor" href="#typer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>typer</h3>
+<h4>
+<a id="user-content-synopsis-1" class="anchor" href="#synopsis-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h4>
+<p><strong>typer</strong> -x &lt;INDEX_PREFIX_FILENAME&gt; -1  [OPTIONS]</p>
+<h4>
+<a id="user-content-description-1" class="anchor" href="#description-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h4>
+<p>STing <strong>typer</strong> is an ultrafast assembly- and alignment-free program for sequence typing directly from whole-genome raw sequence reads. STing <strong>typer</strong> is based on k-mer frequencies, and works with locus-based typing schemes like those defined in the traditional MLST method and its derivatives (e.g, rMLST, cgMLST or wgMLST). STing <strong>typer</strong> requires an index (DB) created with the STing <strong>indexer</strong> program.</p>
+<dl>
+    <dt>-h, --help</dt>
+    <dd>Display the help message.</dd>
+    <dt>--version</dt>
+    <dd>Display version information.</dd>
+</dl>
+<h5>
+<a id="user-content-required-input-parameters" class="anchor" href="#required-input-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Required input parameters:</h5>
+<dl>
+    <dt>-x, --index-prefix INDEX_PREFIX_FILENAME</dt>
+    <dd>Index prefix filename.</dd>
+    <dt>-1, --fastq-1-files FASTQ1</dt>
+    <dd>Files with #1 mates, paired with files in _FASTQ2_. Valid file extensions are _.fq_, _.fastq_ (uncompressed fastq), and _.gz_ (gzip'ed fastq).</dd>
+</dl>
+<h5>
+<a id="user-content-input-options" class="anchor" href="#input-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Input options:</h5>
+<dl>
+    <dt>-2, --fastq-2-files FASTQ2</dt>
+    <dd>Files with #2 mates, paired with files in _FASTQ1_. Valid file extensions are _.fq_, _.fastq_ (uncompressed fastq), and _.gz_ (gzip'ed fastq).</dd>
+    <dt>-s, --sample-name SAMPLE_NAME</dt>
+    <dd>Name of the sample to be analized.</dd>
+    <dt>-k, --kmer-length KMER_LENGTH</dt>
+    <dd>Length of the k-mers to process the input reads. Default: _30_.</dd>
+    <dt>-n, --n-top-alleles N_TOP_ALLELES</dt>
+    <dd>Number of top alleles by k-mer frequencies, from which best alleles will be called. Default: _2_.</dd>
+</dl>
+<h5>
+<a id="user-content-output-options" class="anchor" href="#output-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Output options:</h5>
+<dl>
+    <dt>-c, --kmer-counts</dt>
+    <dd>Select and print the normalized k-mer counts at each locus (k-mer hits divided by allele length).</dd>
+    <dt>-a, --allele-cov</dt>
+    <dd>Select to calculate and print the percent of the length of each allele that is covered by k-mer hits. Note that this calculation will require more execution time.</dd>
+    <dt>-d, --kmer-depth</dt>
+    <dd>Select to calculate and print the average k-mer depth of each allele. Note that this calculation will require more execution time.</dd>
+    <dt>-t, --k-depth-file KMER_DEPTH_FILENAME</dt>
+    <dd>Output filename to save the detailed per-base k-mer depth data.</dd>
+    <dt>-e, --ext-k-depth-file EXT_KMER_DEPTH_FILENAME</dt>
+    <dd>Output filename to save the extended per-base k-mer depth data.</dd>
+    <dt>-o, --output-file OUTPUT_FILENAME</dt>
+    <dd>Output filename to save the typing results (instead of stdout).</dd>
+    <dt>-y, --print-tidy</dt>
+    <dd>Select to print results in a tidy format.</dd>
+    <dt>-v, --verbose</dt>
+    <dd>Select to print informative messages (to stderr).</dd>
+</dl>
+<h5>
+<a id="user-content-presets" class="anchor" href="#presets" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Presets:</h5>
+<dl>
+    <dt>--fast</dt>
+    <dd>(Default). Select to set the _fast_ mode to call alleles based solely on k-mer frequencies. The best allele of each locus is that with the highest k-mer hit frequency.</dd>
+    <dt>--sensitive</dt>
+    <dd>Select to set the _sensitive_ mode to call alleles based on k-mer frequencies and coverage information. The best allele of each locus is that with the highest k-mer hit frequency and the highest allele coverage. Allele ties are solved selecting the allele with the minimum k-mer depth standard deviation.</dd>
+</dl>
+<h4>
+<a id="user-content-note-on-fastq1-and-fastq2" class="anchor" href="#note-on-fastq1-and-fastq2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Note on FASTQ1 and FASTQ2</h4>
+<p><em>FASTQ1</em> and <em>FASTQ2</em> can be comma-separated lists (no whitespace) and can be specified many times, e.g., -1 file1.fq,file2.fq -1 file3.fq</p>
+<h4>
+<a id="user-content-output-conventions" class="anchor" href="#output-conventions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Output conventions</h4>
+<h5>
+<a id="user-content-status-values" class="anchor" href="#status-values" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Status values:</h5>
+<dl>
+    <dt>st_predicted</dt>
+    <dd>ST inferred from k-mer hits and profiles table.</dd>
+    <dt>no_kmer_hits</dt>
+    <dd>There are no k-mer hits for one or more of the loci to infer a profile and its associated ST. Probable causes:</dd>
+    <dd>1) k-mer length not adequate (too long),</dd>
+    <dd>2) low quality data/too many N's in the data.</dd>
+    <dt>no_st_in_table</dt>
+    <dd>There is no ST associated to the inferred allelic profile. Probable causes:</dd>
+    <dd>1) k-mer length not adequate (too short),</dd>
+    <dd>2) this could be a new allelic profile.</dd>
+</dl>
+<h5>
+<a id="user-content-other-valuessymbols" class="anchor" href="#other-valuessymbols" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Other values/symbols:</h5>
+<dl>
+    <dt>NA</dt>
+    <dd>No ST associated or no k-mer hits for any allele of a locus.</dd>
+    <dt>*</dt>
+    <dd>Low confidence. Allele predicted with a length coverage below 100%. Probable causes:</dd>
+    <dd>1) No enough k-mer hits to cover the whole length of the allele</dd>
+    <dd>2) No enough k-mer depth in some part along the range [10, length-10] bp of the allele to consider it as covered.</dd>
+</dl>
+<h4>
+<a id="user-content-version-1" class="anchor" href="#version-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Version</h4>
+<h2>
+<a id="user-content-last-update-02282019typer-version-0242seqan-version-211" class="anchor" href="#last-update-02282019typer-version-0242seqan-version-211" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Last update:</strong> 02/28/2019<br>
+<strong>typer version:</strong> 0.24.2<br>
+<strong>SeqAn version:</strong> 2.1.1</h2>
+<h3>
+<a id="user-content-detector" class="anchor" href="#detector" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>detector</h3>
+<h4>
+<a id="user-content-synopsis-2" class="anchor" href="#synopsis-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h4>
+<p><strong>detector</strong> -x &lt;INDEX_PREFIX_FILENAME&gt; -1  [OPTIONS]</p>
+<h4>
+<a id="user-content-description-2" class="anchor" href="#description-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h4>
+<p>STing <strong>detector</strong> is an ultrafast assembly- and alignment-free program for detecting genes directly from NGS raw sequence reads. STing <strong>detector</strong> is based on k-mer frequencies. STing <strong>detector</strong> requires an index (DB) created with the STing <strong>indexer</strong> program (using the GDETECT mode).</p>
+<dl>
+  <dt>-h, --help</dt>
+    <dd>Display the help message.</dd>
+  <dt>--version</dt>
+    <dd>Display version information.</dd>
+</dl>
+#### Required input parameters:
+<dl>
+  <dt>-x, --index-prefix INDEX_PREFIX_FILENAME</dt>
+    <dd>Database prefix filename.</dd>
+  <dt>-1, --fastq-1-files FASTQ1</dt>
+    <dd>Files with #1 mates, paired with files in _FASTQ1_.</dd>
+</dl>
+#### Input options:
+<dl>
+  <dt>-2, --fastq-2-files FASTQ2</dt>
+    <dd>Files with #2 mates, paired with files in _FASTQ2_.</dd>
+  <dt>-s, --sample-name SAMPLE_NAME</dt>
+    <dd>Name of the sample to be analized.</dd>
+  <dt>-k, --kmer-length KMER_LENGTH</dt>
+    <dd>Length of the k-mers to process the input reads. Default: _30_.</dd>
+  <dt>-r, --threshold THRESHOLD</dt>
+    <dd>Minimum length coverage (%) required to consider a gene as present in a sample. In range [1.0..100.0]. Default: _75_.</dd>
+</dl>
+<h5>
+<a id="user-content-output-options-1" class="anchor" href="#output-options-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Output options:</h5>
+<dl>
+  <dt>-c, --kmer-counts</dt>
+    <dd>Select to print the number of k-mer matches at each gene.</dd>
+  <dt>-p, --kmer-perc</dt>
+    <dd>Select to print the percentage of k-mer matches from the total of processed k-mers.</dd>
+  <dt>-g, --gene-cov</dt>
+    <dd>Select to print the percent of the gene length that is covered by the corresponding k-mer matches.</dd>
+  <dt>-d, --kmer-depth</dt>
+    <dd>Select to print the mean k-mer depth of each gene.</dd>
+  <dt>-y, --print-tidy</dt>
+    <dd>Select to print results in a tidy format.</dd>
+  <dt>-t, --k-depth-file KMER_DEPTH_FILENAME</dt>
+    <dd>Output filename to save the detailed per-base k-mer depth data.</dd>
+  <dt>-v, --verbose</dt>
+    <dd>Select to print informative messages (to stderr). Default non verbose.</dd>
+</dl>
+_FASTQ1_ and _FASTQ2_ can be comma-separated lists (no whitespace) and can be specified many times. E.g. -1 file1.fq,file2.fq -1 file3.fq
+<h4>
+<a id="user-content-version-2" class="anchor" href="#version-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Version</h4>
+<p><strong>Last update:</strong> 10/13/2018<br>
+<strong>detector version:</strong> 0.23.3<br>
+<strong>SeqAn version:</strong> 2.1.1</p>
+</article></body></html>
