@@ -27,11 +27,16 @@
 //      https://patents.google.com/patent/US20190108308A1
 // ############################################################################
 
-
 #ifndef TYPES_HPP
 #define TYPES_HPP
 
+// // Ignore implicit-fallthrough warnings generated from SeqAn 2.1.1 code on gcc > v7
+// #pragma GCC diagnostic ignored "-Wimplicit-fallthrough"
+
 #include <unordered_map>
+#include <set>
+// #include <algorithm>
+#include <functional>
 
 
 #include <seqan/misc/interval_tree.h>
@@ -45,48 +50,61 @@ using namespace std;
 struct SLocusRecord; 
 struct SeqCoverage;
 struct SAlleleCount;
+struct STaxonRecord;
 class SequenceInfo; 
 // ============================================================================
 // Types
 // #F8B195, #F67280, #C06C84, #6C5B7B, #355C7D
 // ============================================================================
-typedef String<Dna5>                               TSequence;
-// typedef String<Iupac>                              TSequence;
-typedef StringSet<TSequence>                       TStringSet;
-typedef Index<TStringSet, IndexEsa<> >             TSequenceEsaIndex;
-typedef StringSet<CharString>                      TCharStringSet;
-typedef Index<TCharStringSet, IndexEsa<> >         TCharEsaIndex;
-typedef Finder<TSequenceEsaIndex>                  TSequenceEsaIndexFinder;
-typedef Finder<TCharEsaIndex>                      TCharEsaIndexFinder;
-typedef Position<TSequenceEsaIndexFinder >::Type   TSequenceEsaIndexPosition;
-typedef vector<string>                             TStringVector;
-typedef TStringVector::iterator                    TStringVectorIterator;
-// typedef FragmentStore<>                            TStore;
-typedef pair<uint64_t, uint64_t>                   TSequenceCountPair;
-typedef map<string, map<string, string > >         TConfigMap;
-typedef map<string, string >                       TLociFilesMap;
-typedef vector<SLocusRecord>                       TLociTable;
-typedef vector<uint64_t>                           TUintVector;
-typedef vector<bool>                               TBoolVector;
-typedef vector<double>                             TDoubleVector;
-typedef vector<SeqCoverage>                        TSeqCovVector;
-typedef vector<SequenceInfo>                       TSeqInfoVector;
-typedef vector<SAlleleCount>                       TAlleleCountVector;
-typedef IntervalAndCargo<uint64_t, uint64_t>       TInterval;
-typedef vector<TInterval>                          TIntervalVector;
-typedef unordered_map<uint64_t, uint64_t >         TUMapUintUint;
-typedef unordered_map<uint64_t, TUMapUintUint >    TUMapUintUMapUintUint;
-typedef unordered_map<uint64_t, TUintVector >      TUMapUintUintVector;
-typedef unordered_map<string, TUintVector >        TUMapStringUintVector;
-typedef unordered_map<uint64_t, double >           TUMapUintDouble;
-typedef unordered_map<uint64_t, TIntervalVector >  TUMapIntervalVector;
-typedef unordered_map<string, TAlleleCountVector > TUMapAlleleCountVector;
-typedef unordered_map<string, TSeqInfoVector >     TUMapSeqInfoVector;
-typedef unordered_map<string, SequenceInfo >       TUMapSequenceInfo;
+typedef String<Dna5>                                TSequence;
+// typedef String<Iupac>                               TSequence;
+typedef StringSet<TSequence>                        TStringSet;
+typedef Index<TStringSet, IndexEsa<> >              TSequenceEsaIndex;
+typedef StringSet<CharString>                       TCharStringSet;
+typedef Index<TCharStringSet, IndexEsa<> >          TCharEsaIndex;
+typedef Finder<TSequenceEsaIndex>                   TSequenceEsaIndexFinder;
+typedef Finder<TCharEsaIndex>                       TCharEsaIndexFinder;
+typedef Position<TSequenceEsaIndexFinder >::Type    TSequenceEsaIndexPosition;
+typedef vector<string>                              TStringVector;
+typedef TStringVector::iterator                     TStringVectorIterator;
+// typedef FragmentStore<>                             TStore;
+typedef pair<uint64_t, uint64_t>                    TSequenceCountPair;
+typedef map<string, map<string, string > >          TConfigMap;
+typedef map<string, string >                        TLociFilesMap;
+typedef map<uint64_t, uint64_t >                    TMapUintUint;
+typedef vector<SLocusRecord>                        TLociTable;
+typedef vector<uint64_t>                            TUintVector;
+typedef vector<bool>                                TBoolVector;
+typedef vector<double>                              TDoubleVector;
+typedef vector<SeqCoverage>                         TSeqCovVector;
+typedef vector<SequenceInfo>                        TSeqInfoVector;
+typedef vector<SAlleleCount>                        TAlleleCountVector;
+typedef IntervalAndCargo<uint64_t, uint64_t>        TInterval;
+typedef vector<TInterval>                           TIntervalVector;
+typedef unordered_map<uint64_t, uint64_t >          TUMapUintUint;
+typedef unordered_map<uint64_t, TUMapUintUint >     TUMapUintUMapUintUint;
+typedef unordered_map<uint64_t, TUintVector >       TUMapUintUintVector;
+typedef unordered_map<string, TUintVector >         TUMapStringUintVector;
+typedef unordered_map<uint64_t, double >            TUMapUintDouble;
+typedef map<uint64_t, double >                      TMapUintDouble;
+typedef unordered_map<uint64_t, TIntervalVector >   TUMapIntervalVector;
+typedef unordered_map<string, TAlleleCountVector >  TUMapAlleleCountVector;
+typedef unordered_map<string, TSeqInfoVector >      TUMapSeqInfoVector;
+typedef unordered_map<string, SequenceInfo >        TUMapSequenceInfo;
+typedef unordered_map<string, uint64_t >            TUMapStringUint;
+typedef vector<STaxonRecord >                       TSTaxonRecordVector;
+typedef pair<uint64_t, uint64_t >                   TPairUintUint;
+typedef pair<uint64_t, double >                     TPairUintDouble;
+// typedef unordered_map<uint64_t, TSTaxonRecordVector > TUMapSTaxRecordVector;
 // typedef unordered_map<uint64_t, TBSTUint* >      TUMapUintBST;
 // typedef BST<uint64_t>                            TBSTUint;
 
 typedef unordered_map<uint64_t, TUintVector >::iterator     TUMapUintUintVectorIt;
+
+// typedef std::function<bool(TPairUintUint, TPairUintUint)> CountMapComparator;
+// typedef std::set<TPairUintUint, CountMapComparator> TSetUintUintComp;
+typedef std::function<bool(TPairUintDouble, TPairUintDouble)> CountUintDoubleMapComparator;
+typedef std::set<TPairUintDouble, CountUintDoubleMapComparator> TSetUintDoubleComp;
 // ============================================================================
 // Enumerations
 // ============================================================================
@@ -124,7 +142,8 @@ enum LogLevel
 enum IndexerMode
 {
     MLST_MODE          = 0,
-    GENE_DETECTOR_MODE = 1
+    GENE_DETECTOR_MODE = 1,
+    CLASSIFIER_MODE    = 2
 };
 // ----------------------------------------------------------------------------
 // enum StStatus
@@ -142,22 +161,27 @@ enum IndexerMode
 #define STR(tok) STR_EXPAND(tok)
 
 // General values
-#define FIELD_SEPARATOR          "\t"
-#define NA_STRING                "NA"
-#define LOW_CONFIDENCE_SYMBOL    "*"
-#define CURRENT_DIRECTORY        "."
+#define FIELD_SEPARATOR           "\t"
+#define TAXON_SEPARATOR           "; "
+#define NA_STRING                 "NA"
+#define LOW_CONFIDENCE_SYMBOL     "*"
+#define CURRENT_DIRECTORY         "."
 
 // Default input param values
-#define DEFAULT_KMER_LENGHT      30
-#define DEFAULT_TOP_N_ALLELES    2
+#define DEFAULT_KMER_LENGHT       30
+#define DEFAULT_TOP_N_ALLELES     2
 
 // Values to check gaps in k-mer depth
-#define BASES_MARGIN             10          // from the 10th base to the length of allele-10
-#define DEPTH_DIFF_MAX_PEAK      1.414214    // 2^0.5
-#define DEPTH_DIFF_MIN_PEAK      0.7071068   // 2^-0.5
+#define BASES_MARGIN              10          // from the 10th base to the length of allele-10
+#define DEPTH_DIFF_MAX_PEAK       1.414214    // 2^0.5
+#define DEPTH_DIFF_MIN_PEAK       0.7071068   // 2^-0.5
 
 // Allele sequence separator
 #define ALLELE_SEQ_ID_SEPARATOR   "_"
+
+// Classifier app related values
+#define UNCLASSIFIED_STRING       "Unclassified"
+
 
 // Config file related values:
 // - Config file comment character
@@ -172,6 +196,7 @@ enum IndexerMode
 // Valid values for the option mode (-m|--mode) in the indexer app
 #define MLST_MODE_OPTION          "MLST"
 #define GENE_DETECTOR_MODE_OPTION "GDETECT"
+#define CLASSIFIER_MODE_OPTION    "CLASSIFY"
 
 // File extensions (index)
 #define ESA_INDEX_EXT             ".sa"
@@ -180,14 +205,18 @@ enum IndexerMode
 #define ALLELIC_PROFILE_EXT       ".apr"
 #define ALLELES_SEQ_IDS_EXT       ".ids"
 #define PROFILE_INDEX_SUFFIX      ".prof_idx"
+#define TAXA_EXT                  ".tax"
+#define RANKS_EXT                 ".rnk"
+#define CLASSIFIER_PROFILE_EXT    ".cpr"
+#define LINEAGE_EXT               ".lin"
 
 // App info
-#define INDEXER_APP_VERSION       "0.24.2"
-#define DETECTOR_APP_VERSION      "0.24.2"
-#define TYPER_APP_VERSION         "0.24.2"
-#define INDEXER_APP_UPDATE        "01/09/2019"
-#define DETECTOR_APP_UPDATE       "03/17/2019"
-#define TYPER_APP_UPDATE          "04/03/2019"
+#define INDEXER_APP_VERSION       "1.0.0"
+#define DETECTOR_APP_VERSION      "1.0.0"
+#define TYPER_APP_VERSION         "1.0.0"
+#define INDEXER_APP_UPDATE        "11/18/2019"
+#define DETECTOR_APP_UPDATE       "11/18/2019"
+#define TYPER_APP_UPDATE          "11/18/2019"
 
 #define INDEXER_APP_NAME          "indexer"
 #define TYPER_APP_NAME            "typer"
