@@ -37,12 +37,12 @@ Two main steps are required to execute an MLST analysis with STing: *Database in
     
     A standard multi-FASTA file in which the id of each sequence consists of a locus name and an allele number separated by ```_```:
     
-    ```
+```
     >abcZ_1
     TTTGATACTGTTGCCGA...
     >abcZ_2
-    TTTGATACTGTTGCCGA...
-    ```
+    TTTGATACTGTTGCCGA...   
+```
     
     ##### Profile file
     

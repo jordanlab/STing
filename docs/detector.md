@@ -82,7 +82,7 @@ Two main steps are required to detect genes using STing: *Database building* and
     Index created successfuly!
     ```
     
-## Detection
+## Running Gene Detection
 
 You must use the ```detector``` tool to detect genes in a read set:
 

@@ -1,7 +1,6 @@
 site_name: STing
 nav: 
     - Home: index.md
-    - About: about.md
     - Quickstart: quickstart.md
     - 'Companion scripts': companion-scripts.md
     - 'Typer: MLST and beyond': typer.md
