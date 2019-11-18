@@ -65,11 +65,8 @@ agpl3_header.txt
 sting.code-workspace
 src/config.h.in
 
-*detector
 *gene-detector
 *gene_detector
-*indexer
-*typer
 detector.html
 indexer.html
 typer.html
