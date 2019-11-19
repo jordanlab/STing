@@ -31,7 +31,16 @@ See the full documentation at: https://sting.readthedocs.io/
 
 ## Installation
 
+### Using the pre-build, static binaries
+
+```bash
+wget https://github.com/jordanlab/STing/releases/download/1.0.0/sting_v1.0.0.tar.gz
+tar xfv sting_v1.0.0.tar.gz
+export PATH=$PWD/sting:$PATH
 ```
+
+### From source: 
+```bash
 ./autogen.sh
 ./configure
 make
@@ -46,26 +55,26 @@ By default, `make install` will install all the files in ```/usr/local/bin```, `
 
 Preparing directory:
 
-```
+```bash
 mkdir STing_demo
 cd STing_demo
 ```
 
 Downloading the *Neisseria spp.* MLST database from PubMLST.org and build a STing index from it:
 
-```
+```bash
 db_util.py fetch --query "Neisseria spp." --out_dir my_dbs --build_index
 ```
 
 Downloading a WGS sample to analyze:
 
-```
+```bash
 wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR026/ERR026529/ERR026529_1.fastq.gz ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR026/ERR026529/ERR026529_2.fastq.gz
 ```
 
 Run STing typer:
 
-```
+```bash
 typer -x my_dbs/neisseria_spp/db/index -1 ERR026529_1.fastq.gz -2 ERR026529_2.fastq.gz -s ERR026529 -c -a -d -t ERR026529.depth.tsv -y -o ERR026529.results.tsv --sensitive
 ```
 
@@ -85,7 +94,7 @@ STing has three applications:
 
 To explore the usage and available options for each tool, run the corresponding application using the option ```-h``` or ```--help```:
 
-```
+```bash
 indexer -h
 typer -h
 detector -h
