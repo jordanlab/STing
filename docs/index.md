@@ -33,7 +33,7 @@ export PATH=$PWD/sting:$PATH
 make
 make install
 ```
-```
+
 
 By default, `make install` will install all the files in ```/usr/local/bin```, ```/usr/local/lib``` etc.  You can specify an installation prefix other than ```/usr/local``` using the ```--prefix``` options from ```./configure```, for instance ```./configure --prefix=$HOME```.  Please check all the available options of ```./configure``` by executing ```./configure --help```.
 
