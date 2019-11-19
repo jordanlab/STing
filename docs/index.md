@@ -18,11 +18,21 @@ Rapid sequence typing.  Identification of bacterial sequence type (ST) is of utm
 
 ## Installation
 
+### Using the pre-built static binaries
+
+```bash
+wget https://github.com/jordanlab/STing/releases/download/1.0.0/sting_v1.0.0.tar.gz
+tar xfv sting_v1.0.0.tar.gz
+export PATH=$PWD/sting:$PATH
 ```
+
+### From source: 
+```bash
 ./autogen.sh
 ./configure
 make
 make install
+```
 ```
 
 By default, `make install` will install all the files in ```/usr/local/bin```, ```/usr/local/lib``` etc.  You can specify an installation prefix other than ```/usr/local``` using the ```--prefix``` options from ```./configure```, for instance ```./configure --prefix=$HOME```.  Please check all the available options of ```./configure``` by executing ```./configure --help```.

@@ -5,7 +5,7 @@
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Quickstart guide](#quickstart-guide)
-    - [Typing](#typing)
+    - [Typincccccceefjeg](#typing)
     - [Gene detection](#gene-detection)
     - [Preparing the database:](#preparing-the-database)
 - [STing applications](#sting-applications)
@@ -13,6 +13,7 @@
 
 ## Documentation
 
+[![Documentation Status](https://readthedocs.org/projects/sting/badge/?version=latest)](https://sting.readthedocs.io/en/latest/?badge=latest)
 See the full documentation at: https://sting.readthedocs.io/ 
 
 
@@ -31,7 +32,7 @@ See the full documentation at: https://sting.readthedocs.io/
 
 ## Installation
 
-### Using the pre-build, static binaries
+### Using the pre-built static binaries
 
 ```bash
 wget https://github.com/jordanlab/STing/releases/download/1.0.0/sting_v1.0.0.tar.gz
