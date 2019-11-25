@@ -13,7 +13,7 @@
 
 ## Documentation
 
-[![Documentation Status](https://readthedocs.org/projects/sting/badge/?version=latest)](https://sting.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/sting/badge/?version=latest)](https://sting.readthedocs.io/en/latest/?badge=latest)  
 See the full documentation at: https://sting.readthedocs.io/ 
 
 
@@ -51,6 +51,12 @@ make install
 By default, `make install` will install all the files in ```/usr/local/bin```, ```/usr/local/lib``` etc.  You can specify an installation prefix other than ```/usr/local``` using the ```--prefix``` options from ```./configure```, for instance ```./configure --prefix=$HOME```.  Please check all the available options of ```./configure``` by executing ```./configure --help```.
 
 ## Quickstart guide
+
+### Pre-built MLST databases
+
+Pre-built MLST databases are provided here and updated weekly: https://github.com/jordanlab/STing_datasets  
+
+We recommend building a new database each time STing is run, or daily if under continual use, to ensure the most up to date definitions as possible
 
 ### Typing 
 

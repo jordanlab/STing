@@ -1,3 +1,10 @@
+# Pre-built MLST databases
+
+Pre-built MLST databases are provided here and updated weekly: https://github.com/jordanlab/STing_datasets  
+
+We recommend building a new database each time STing is run, or daily if under continual use, to ensure the most up to date definitions as possible
+
+
 # Typing 
 
 Preparing directory:
