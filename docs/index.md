@@ -1,6 +1,13 @@
 # STing: Ultrafast sequence typing and gene detection from NGS raw reads
 
-Rapid sequence typing.  Identification of bacterial sequence type (ST) is of utmost importance for molecular epidemiology and outbreak control.  The most common approach to typing is multilocus sequence typing (MLST) that defines an ST based on seven to nine housekeeping loci.  Availability of whole-genome sequencing has allowed increased resolution in MLST by incorporating more loci into the scheme.  Such “super-MLST” schemes include ribosomal MLST (rMLST, ~50 loci), core-genome MLST (cgMLST, >1,500 loci) and whole-genome MLST (>2,000 loci).  While these super-MLST schemes provide substantially higher resolution, the classical analysis of whole genome sequence entails substantial downstream bioinformatics analyses before the ST can be determined.  IHRC-GIT ABiL’s tool STing (Sequence Typing) is an ultrafast utility that that identifies an ST directly from raw sequencing reads using a novel, alignment-free algorithm.  STing correctly assigns sequence types with 100% accuracy in traditional MLST and near 100% accuracy in rMLST and cgMLST.    
+
+
+Rapid sequence typing.  Identification of bacterial sequence type (ST) is of utmost importance for molecular epidemiology and outbreak control.  The most common approach to typing is multilocus sequence typing (MLST) that defines an ST based on seven to nine housekeeping loci.  Availability of whole-genome sequencing has allowed increased resolution in MLST by incorporating more loci into the scheme.  Such “super-MLST” schemes include ribosomal MLST (rMLST, ~50 loci), core-genome MLST (cgMLST, >1,500 loci) and whole-genome MLST (>2,000 loci).  While these super-MLST schemes provide substantially higher resolution, the classical analysis of whole genome sequence entails substantial downstream bioinformatics analyses before the ST can be determined.  IHRC-GIT ABiL’s tool STing (Sequence Typing) is an ultrafast utility that that identifies an ST directly from raw sequencing reads using a novel, alignment-free algorithm.  STing correctly assigns sequence types with 100% accuracy in traditional MLST and near 100% accuracy in rMLST and cgMLST.
+
+
+[Source code](https://github.com/jordanlab/STing)
+
+[![Documentation Status](https://readthedocs.org/projects/sting/badge/?version=latest)](https://sting.readthedocs.io/en/latest/?badge=latest)  
 
 ## Requirements
 
