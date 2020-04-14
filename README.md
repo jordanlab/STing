@@ -5,7 +5,7 @@
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Quickstart guide](#quickstart-guide)
-    - [Typincccccceefjeg](#typing)
+    - [Typing](#typing)
     - [Gene detection](#gene-detection)
     - [Preparing the database:](#preparing-the-database)
 - [STing applications](#sting-applications)
