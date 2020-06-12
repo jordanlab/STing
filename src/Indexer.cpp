@@ -99,7 +99,6 @@ void Indexer::setupArgumentParser()
         "particular location, e.g., path/to/my/db/prefix. "
         "Default: name of the config file \\fI" + config_file_param_name + "\\fP",
         ArgParseArgument::OUTPUT_FILE , out_prefix_param_name));
-
     
     addOption(parser, ArgParseOption(
         "m", "mode", "Indexing mode. Valid options: MLST, GDETECT. "
@@ -194,7 +193,6 @@ Indexer::parseCommandLine(int argc, char const ** argv)
     else
     {
         printHelp(parser);
-        // printShortHelp(parser);
         cerr << "\nERROR: Invalid option for -m (--mode) argument. "
                 "Valid options are '"<< MLST_MODE_OPTION<< "' and '" << GENE_DETECTOR_MODE_OPTION <<"'"<< endl;
         return ArgumentParser::PARSE_ERROR;
@@ -352,14 +350,6 @@ void Indexer::loadLociFiles()
     
     for (auto & locus_item : config_map[LOCI_CONFIG_KEY])
     {
-        // string locus_full_path;
-        // string config_file_path = getPathName(options.getConfigFileFilename());
-        
-        // if (config_file_path.compare("") == 0)
-        //     config_file_path = CURRENT_DIRECTORY;
-            
-        // locus_full_path  = pathAppend(config_file_path, locus_item.second);
-        
         string locus_full_path;
         string config_file_dir;
         string config_file_base;
@@ -471,57 +461,8 @@ void Indexer::loadProfilesFile()
         }
     }
 }
-// // -----------------------------------------------------------------------------------
-
-// /**
-//  * @brief      Loads the profiles file defined in the input config file.
-//  *
-//  * @param      filename  The filename of the profiles file
-//  */
-// void Indexer::loadProfilesFile(const string & filename)
-// {
-//     unordered_map<string, vector<string>> table;
-//     fstream profiles_file(filename, ios::in);
-    
-//     if (profiles_file.is_open()) 
-//     {
-//         string line;
-//         vector<string> col_names;
-//         uint64_t current_line = 0;
-//         while(getline(profiles_file, line))
-//         {
-//             vector<string> fields;
-            
-//             if (!line.empty() && line.at(0) != COMMENT_CHAR)    // The current line is not an empty/comment line
-//             {
-//                 split(fields, line, FIELD_SEPARATOR);
-                
-//                 if (++current_line == 1)    // get header and create the map
-//                 {   
-//                     profiles_table.cols = fields;
-//                     for(string col : profiles_table.cols) {
-//                         table[col] = vector<string>();
-//                         profiles_table.table[col] = table[col];
-//                     }
-//                 }
-//                 else {
-                    
-//                     for(uint64_t i = 0; i < profiles_table.cols.size(); ++i) {
-//                         string col = profiles_table.cols[i];
-//                         profiles_table.table[col].push_back(fields[i]);
-//                     }
-//                 }
-//             }
-//         }
-        
-//         profiles_file.close();
-//     } 
-//     else {
-//         cerr << "ERROR: Could not open the profiles file '" << filename << "'\n";
-//         exit(1);
-//     }
-// }
 // -----------------------------------------------------------------------------------
+
 /**
  * @brief      Gets the string representation of all the profiles defined in the
  *             profiles file, to be indexed using an ESA index
@@ -531,11 +472,6 @@ void Indexer::loadProfilesFile()
 void Indexer::getProfileStrings(TCharStringSet & profiles)
 {
     TStringVector loci_ids;
-    // get the loci ids from the profiles table
-    // for(uint64_t i = 1; i < profiles_table.cols.size() - 1; ++i) {
-    //     loci_ids.push_back(profiles_table.cols[i]);
-    // }
-    
     // get the loci ids from the lociTable to preserve the same order in which
     // the loci sequences were loaded
     for(auto&& locus : loci_table) {
@@ -546,7 +482,6 @@ void Indexer::getProfileStrings(TCharStringSet & profiles)
     
     // Check if the number of columns in the profiles file is at least the number of
     // loci plus one which are specified in the config fle
-    // if (loci_ids.size() == profiles_table.cols.size()-2) 
     if (profiles_table.cols.size() > loci_ids.size()) 
     {
         // loop through the loci table merging the allele numbers of each 
@@ -555,10 +490,8 @@ void Indexer::getProfileStrings(TCharStringSet & profiles)
         for(uint64_t i = 0; i < profiles_table.table["ST"].size(); ++i) 
         {
             string current_prof = "*";
-            // for(uint64_t j = 0; j < (loci_ids.size()); ++j)
             for(auto&& clocus : loci_table)
             {
-                // string locus = loci_ids[j];
                 string locus = clocus.id;
                 if (profiles_table.table.find(locus) != profiles_table.table.end())
                 {
@@ -581,8 +514,6 @@ void Indexer::getProfileStrings(TCharStringSet & profiles)
     else 
     {
         cerr << endl 
-             // << "ERROR: The number of loci in the config file (" << loci_ids.size() << ") and "
-             // "the profiles file (" << profiles_table.cols.size() << "), are not the same."
              << "ERROR: At least " << loci_ids.size() + 1 
              << " columns (a ST column + # loci in config file) are required in the profiles file but only "
              << profiles_table.cols.size() << " were found."
@@ -849,19 +780,19 @@ int Indexer::runMlstIndexer()
     
     out_prefix_filename = options.getOutPrefixFilename();
     relativeDirBaseSplit(out_dir, prefix, out_prefix_filename);
-       
+    
+    if (out_dir == "")
+        out_dir = ".";
+    
     // Create the output dir if it does not exist
     if (checkDir(out_dir) != DIRECTORY_EXISTS)
     {
-        // if (makeDir(out_dir) == MAKE_DIR_ERROR)
         if (mkpath(out_dir.c_str(), 0750) != 0)
         {
             cerr << "ERROR: Could not create the output directory '" << out_dir << "'." << endl;
             return 1;
         }
     }
-    
-    // createProfilesIndex(profiles, options.getOutPrefixFilename() + string(".prof_idx"));
     
     cout << "Done!" << endl;
     cout << "Creating and saving ESA index from loaded sequences... ";
@@ -881,7 +812,7 @@ int Indexer::runMlstIndexer()
        saveAlleleSequenceIds(out_prefix_filename + string(ALLELES_SEQ_IDS_EXT)) == SAVE_SUCCESS)
     {
         cout << "Done!" << endl;
-        cout << "Index created successfully!" << endl;
+        cout << "Index created successfully with prefix '" << out_prefix_filename << "'" << endl;
     }
     else
     {
@@ -909,15 +840,12 @@ int Indexer::runGeneDetectorIndexer()
     
     cout << endl << "Creating and saving ESA index from loaded sequences..." << endl;
     
-    // Construct ans save all the files that make up the database:
-    //  - ESA index from the allele sequences
-    //  - Loci table (for each loci: id, file path, n. sequences, and index of the last sequence)
-    //  - Loci-Alleles index: a vector with the corresponding locus index (form the Loci Table) for each of the alleles
-    //  - Allele sequence ids: a vector with all the alleles sequence ids that meke up the ESA index
-    
     out_prefix_filename = getOptions().getOutPrefixFilename();
     relativeDirBaseSplit(out_dir, prefix, out_prefix_filename);
-       
+    
+    if (out_dir == "")
+        out_dir = ".";
+    
     // Create the output dir if it does not exist
     if (checkDir(out_dir) != DIRECTORY_EXISTS)
     {
@@ -929,13 +857,19 @@ int Indexer::runGeneDetectorIndexer()
         }
     }
     
+    // Construct ans save all the files that make up the database:
+    //  - ESA index from the allele sequences
+    //  - Loci table (for each loci: id, file path, n. sequences, and index of the last sequence)
+    //  - Loci-Alleles index: a vector with the corresponding locus index (form the Loci Table) for each of the alleles
+    //  - Allele sequence ids: a vector with all the alleles sequence ids that meke up the ESA index
     
     if(createAllelesIndex(out_prefix_filename) == SAVE_SUCCESS && 
        saveLociTable(out_prefix_filename + string(LOCI_TABLE_EXT)) == SAVE_SUCCESS &&
        saveLociAllelesIndex(out_prefix_filename + string(ALLELES_LOCI_INDEX_EXT)) == SAVE_SUCCESS &&
        saveAlleleSequenceIds(out_prefix_filename + string(ALLELES_SEQ_IDS_EXT)) == SAVE_SUCCESS)
     {
-        cout << "Index created successfuly!" << endl;
+        cout << "Done!" << endl;
+        cout << "Index created successfully with prefix '" << out_prefix_filename << "'" << endl;
     }
     else
     {
@@ -958,11 +892,6 @@ int Indexer::run(int argc, char const ** argv)
     // Check if the input file exists
     if (checkFile(options.getConfigFileFilename()) == FILE_NOT_FOUND)
         return 1;
-    
-    // Set the full path of the config file
-    // string config_file_full_path;
-    // realpath(config_file_full_path, options.getConfigFileFilename());
-    // options.setConfigFileFilename(config_file_full_path);
     
     if (options.getMode() == MLST_MODE)
         return runMlstIndexer();
@@ -1248,7 +1177,6 @@ Indexer::~Indexer()
     
 }
 
-
 // ============================================================================
 // Main function
 // ============================================================================
@@ -1265,48 +1193,5 @@ int main(int argc, char const ** argv)
 {
     
     Indexer indexer_app;
-    
-    // TStringVector paths;
-    // paths.push_back("file");
-    // paths.push_back("/file");
-    // paths.push_back("./file");
-    // paths.push_back("/path/to/file");
-    
-    // for(auto&& p : paths) {
-    //     cout << "getPathName(p): " << getPathName(p) << endl;
-    // }
-    
-    // // Testing dir_utils.hpp functions
-    // string path;
-    // string indexerPath;
-    
-    // cout << getCwd(path) << endl;
-    // cout << path << endl;
-    // indexerPath = path + "indexer";
-    
-    // string cDir;
-    // string cBase;
-    // relativeDirBaseSplit(indexerPath, cDir, cBase);
-    // cout << "dir: " << cDir << "  base: " << cBase << endl;
-    
-    // string shortPath = "./indexers";
-    // string fullPath;
-    // bool res = realpath(shortPath, fullPath);
-    // cout << res << endl;
-    // cout << "shortPath: " << shortPath << endl;
-    // cout << "fullPath: " << fullPath << endl;
-
-    // // Testing mkpath
-    // string path = "db/test/new/path/dir/otro";
-    // string fullPath;
-    // realpath(fullPath, "db/test/new/path/dir/");
-    // fullPath += "mas";
-    // if (mkpath(fullPath.c_str(), 0770) == 0) {
-    //     cout << "Directory created successfully at " << fullPath << endl;
-    // }
-    // else {
-    //     cerr << "ERROR: Failed to create '" << path << "'. " << strerror(errno) << endl;
-    // }
-    
     return indexer_app.run(argc, argv);
 }
