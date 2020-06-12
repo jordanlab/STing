@@ -2,7 +2,7 @@
 # Force autoconf to be at least this version number:
 AC_PREREQ([2.69])
 # Initialize, but use more options.  Note parameters brackets and whitespace.
-AC_INIT([STing], [0.24.2], [hspitia@gatech.edu])
+AC_INIT([STing], [1.0.0], [hspitia@gatech.edu])
 # Safety check - list a source file that wouldn't be in other directories:
 AC_CONFIG_SRCDIR([src/Typer.cpp])
 # Put configuration results here, so we can easily #include them:

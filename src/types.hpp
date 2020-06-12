@@ -211,10 +211,10 @@ enum IndexerMode
 #define LINEAGE_EXT               ".lin"
 
 // App info
-#define INDEXER_APP_VERSION       "1.0.0"
+#define INDEXER_APP_VERSION       "1.0.1"
 #define DETECTOR_APP_VERSION      "1.0.0"
 #define TYPER_APP_VERSION         "1.0.0"
-#define INDEXER_APP_UPDATE        "11/18/2019"
+#define INDEXER_APP_UPDATE        "06/12/2020"
 #define DETECTOR_APP_UPDATE       "11/18/2019"
 #define TYPER_APP_UPDATE          "11/18/2019"
 
