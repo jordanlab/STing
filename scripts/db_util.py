@@ -65,8 +65,8 @@ def setup_argument_parser():
                              help    = "Output directory for saving retrieved DBs. [Default: pubmlst_dbs]")
     
     parser.add_argument('--version', action='version', version='%(prog)s\n  version:\t{}\n  last update:\t{}'.format(
-                '1.2', 
-                '11/14/2019'))
+                '1.2.1', 
+                '07/09/2020'))
     return parser
 
 # ==============================================================================
@@ -156,7 +156,7 @@ def fetch_db(species, outDbDir):
             fileName  = os.path.join(outDbDir,locusName+".fa")
             urllib.request.urlretrieve(locusUrl.text, fileName)
             print(" - {} -> {}".format(locusUrl.text, fileName))
-            configFile.write("{}\t{}\n".format(locusName, fileName))
+            configFile.write("{}\t{}.fa\n".format(locusName, locusName))
         
         configFile.write("\n[profile]\n")
         
@@ -166,7 +166,7 @@ def fetch_db(species, outDbDir):
             print(" Fetching profiles: ")
             urllib.request.urlretrieve(profileUrl.text, fileName)
             print(" - {} -> {}".format(profileUrl.text, fileName, ""))
-            configFile.write("{}\t{}\n".format(os.path.basename(outDbDir), fileName))
+            configFile.write("{}\tprofile.txt\n".format(os.path.basename(outDbDir)))
         
         configFile.close()
         
