@@ -34,6 +34,9 @@ typer -x my_dbs/neisseria_spp/db/index -1 ERR026529_1.fastq.gz -2 ERR026529_2.fa
 
 # Gene detection
 
+Prbuilt CARD and VFDB databases are available on the STing Datasets repository: https://github.com/jordanlab/STing_datasets  
+Both pre-built databases and the one described below are for use with `detector`.
+
 Preparing directory:
 
 ```
