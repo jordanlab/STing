@@ -151,8 +151,9 @@ def fetch_db(species, outDbDir):
         print(" Fetching allele sequences: ")
         
         # Fetch loci sequence files
-        for locusUrl in species.iterfind("./mlst/database/loci/locus/url") :
-            locusName = os.path.splitext(os.path.basename(locusUrl.text))[0]
+        for locus in species.iterfind("./mlst/database/loci/locus"):
+            locusName = locus.text.strip()
+            locusUrl = locus.find("./url")
             fileName  = os.path.join(outDbDir,locusName+".fa")
             urllib.request.urlretrieve(locusUrl.text, fileName)
             print(" - {} -> {}".format(locusUrl.text, fileName))
