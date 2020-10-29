@@ -35,9 +35,11 @@ See the full documentation at: https://sting.readthedocs.io/
 ### Using the pre-built static binaries
 
 ```bash
-wget https://github.com/jordanlab/STing/releases/download/1.0.0/sting_v1.0.0.tar.gz
-tar xfv sting_v1.0.0.tar.gz
-export PATH=$PWD/sting:$PATH
+wget https://github.com/jordanlab/STing/releases/download/v1.0.1/STing_v1.0.1.tar.gz
+tar xfv STing_v1.0.1.tar.gz
+wget https://github.com/jordanlab/STing/raw/master/scripts/db_util.py -O STing/db_util.py
+chmod +x STing/db_util.py
+export PATH=$PWD/STing:$PATH
 ```
 
 ### From source: 
