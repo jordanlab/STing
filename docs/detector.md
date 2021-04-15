@@ -40,10 +40,10 @@ Two main steps are required to detect genes using STing: *Database building* and
     A standard multi-FASTA file in which the id is the name of the gene. In case of having genes with the same name, you should add a number to the name separated by ```_```:
     
     ```
-    >pen_1
-    TTTGATACTGTTGCCGA...
-    >pen_2
-    TTTGATACTGTTGCCGA...
+    >pen_1  
+    TTTGATACTGTTGCCGA...  
+    >pen_2  
+    TTTGATACTGTTGCCGA...  
     ```
     
 2. Build the database using the ```indexer``` tool:
@@ -101,8 +101,8 @@ The command above will detect presence/absence (1/0) of the genes from the datab
 The output of the previous command looks like this:
 
 ```
-Sample  Line_type ermC  ksga1 ksga2 pbp2b pen1  pen2  pen3  pen4  qacE1 Total_hits  Total_kmers Total_reads Input_files 
-GCF_000008805 presence  1 1 0 1 1 1 1 1 1 288106170395  1396  GCF_000008805.fasta.40.1.fq.gz,GCF_000008805.fasta.40.2.fq.gz
+Sample        Line_type ermC  ksga1 ksga2 pbp2b pen1  pen2  pen3  pen4  qacE1 Total_hits    Total_kmers Total_reads Input_files 
+GCF_000008805 presence  1     1     0     1     1     1     1     1     1     288106170395  1396        GCF_000008805.fasta.40.1.fq.gz,GCF_000008805.fasta.40.2.fq.gz
 ```
 
 By default, the detector application will send the header to ```stderr```, and the prediction result to ```stdout```. 
